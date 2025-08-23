@@ -35,7 +35,7 @@ jobs:
       # Docker Build & Push (docker hub repo: coursework_demo)
       - name: Docker Login & Build/Push Image
         run: |
-          docker login -u shubhankarthapa -p $DOCKERHUB_PAT
+          docker login -u shubhankarthapa -p ${{ secrets.DOCKERHUB_PAT }}
           docker build -t shubhankarthapa/coursework_devops . 
           docker push shubhankarthapa/coursework_devops
           
