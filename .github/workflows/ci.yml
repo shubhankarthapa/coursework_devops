@@ -64,5 +64,7 @@ jobs:
       - name: Deploy Docker Container on Server
         run: |
           ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker pull shubhankarthapa/coursework_devops'
-          ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker stop course_work && docker rm course_work || true'
-          ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker run --name course_work -p 80:80 -d shubhankarthapa/coursework_devops'
+          ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker-compose down'
+          ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker-compose up -d'
+        # ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker stop course_work && docker rm course_work || true'
+        #  ssh -t ubuntu@$SERVER_IP -i pem.pem 'docker run --name course_work -p 80:80 -d shubhankarthapa/coursework_devops'
